@@ -27,9 +27,45 @@ function urlRepo() {
 Crear una función arrow, que devuelva una clase en ES6 que contendrá dos métodos llamados contadorPalabras y hayNumeros. La clase recibirá un texto que se guardará en una propiedad llamada texto. contadorPalabras retornará la cantidad de palabras encontradas en la propiedad texto y hayNumeros devolverá true en caso de que encuentre un número en dicho texto, caso contrario retorna false. En ambos métodos, si el texto no es válido, se devolverá -1
 Crear un propiedad estática contadorInstancias que me indique cuantas instancias hay de esa clase.
 */
+
 const crearClase = () => {
-  return
+  class Ejercicio3 {
+    static contadorInstancias = 0;
+      constructor(texto){
+      this.texto=texto
+      Ejercicio3.contadorInstancias++ ;
+    }
+    contadorPalabras(){
+if(typeof this.texto!="string"){
+  return -1
 }
+         else if(this.texto=="") {
+        return 0
+      }else{
+        return this.texto.split(' ').length
+    }
+     }
+    hayNumeros(){
+
+      if(typeof this.texto!="string"){
+        return -1
+      } else if(/\d/.test(this.texto)==true){
+        return true;
+      }else{
+        return false;
+      }
+
+ 
+    
+      
+    }  
+
+
+  }
+
+  return Ejercicio3
+}
+
 
 module.exports = {
   contarVocales,
